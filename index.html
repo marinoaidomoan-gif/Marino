@@ -33,6 +33,11 @@
                 <li><a href="#contact" class="menu-lien menu-lien-contact">Contact</a></li>
             </ul>
             </nav>
+
+            <!-- bouton de bascule de thème -->
+            <button class="theme-toggle" id="theme-toggle" aria-label="Changer de thème">
+                <i class="fa-solid fa-moon" id="theme-icon" aria-hidden="true"></i>
+            </button>
             
             <!-- Bouton menu mobile -->
             <button class="bouton-menu-mobile" id="bouton-menu-mobile"
@@ -48,13 +53,336 @@
 
         <section id="accueil" class="hero">
 
+            <div class="hero-bg"></div>
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="hero-label">Développeur Web Full Stack</div>
+                    <h1 class="hero-title">
+                        <span class="hero-greeting">Bonjour, je suis</span>
+                        <span class="hero-name">Marino AIDOMOAN</span>
+                    </h1>
+                    <p class="hero-description">
+                        Je transforme des idées en <strong>expériences digitales performantes</strong>. 
+                        Spécialisé dans le développement web moderne avec une expertise en front-end et back-end.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#portfolio" class="btn btn-primary">Voir mes projets</a>
+                        <a href="#contact" class="btn btn-secondary">Me contacter</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-card">
+                        <div class="card-line"></div>
+                        <div class="card-content">
+                            <div class="card-stat">
+                                <span class="stat-number">10+</span>
+                                <span class="stat-label">Projets réalisés</span>
+                            </div>
+                            <div class="card-stat">
+                                <span class="stat-number">100%</span>
+                                <span class="stat-label">Satisfaction client</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <span>Scroll</span>
+                <div class="scroll-line"></div>
+            </div>
+
         </section>
 
         <section id="apropos" class="about">
 
+            <div class="conteneur">
+
+                <!-- En-tête -->
+                <div class="en-tete-section">
+                    <span class="label-section">Qui suis-je ?</span>
+                    <h2 class="titre-section">À propos de moi</h2>
+                </div>
+
+                <!-- Grille principale -->
+                <div class="grille-apropos">
+
+                    <!-- Colonne gauche : Photo + badges -->
+                    <div class="colonne-image">
+                        <div class="conteneur-image">
+                            <img 
+                                src="images/maphoto.jpeg" 
+                                alt="Marino AIDOMOAN - Développeur Full Stack" 
+                                class="photo-profil"
+                            >
+                        </div>
+
+                        <!-- Badge "disponible" -->
+                        <div class="badge-disponible">
+                            <i class="fas fa-circle-check" aria-hidden="true"></i>
+                            <span>Disponible pour des projets</span>
+                        </div>
+
+                        <!-- Mini-stats superposées sur la photo -->
+                        <div class="superposition-stats">
+                            <div class="puce-stat">
+                                <span class="chiffre-stat">3+</span>
+                                <span class="libelle-stat">Années d'XP</span>
+                            </div>
+                            <div class="puce-stat">
+                                <span class="chiffre-stat">15+</span>
+                                <span class="libelle-stat">Projets livrés</span>
+                            </div>
+                            <div class="puce-stat">
+                                <span class="chiffre-stat">100%</span>
+                                <span class="libelle-stat">Clients satisfaits</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Colonne droite : Contenu -->
+                    <div class="colonne-contenu">
+
+                        <h3 class="sous-titre-apropos">
+                            Développeur passionné par la création d'expériences web innovantes
+                        </h3>
+
+                        <p class="texte-apropos">
+                            Avec plus de <strong>3 ans d'expérience</strong> dans le développement web, 
+                            je me spécialise dans la création de sites et applications performantes 
+                            qui allient esthétique moderne et fonctionnalité robuste.
+                        </p>
+
+                        <p class="texte-apropos">
+                            Mon approche se concentre sur la compréhension des besoins du client 
+                            pour délivrer des solutions sur-mesure qui dépassent les attentes. 
+                            De l'interface utilisateur au développement backend, 
+                            je maîtrise toute la chaîne de création d'un produit digital.
+                        </p>
+
+                        <!-- Citation / Philosophie -->
+                        <div class="citation-apropos">
+                            <i class="fas fa-quote-left" aria-hidden="true"></i>
+                            <p>« Un code propre aujourd'hui, c'est des nuits tranquilles demain. »</p>
+                        </div>
+
+                        <!-- Tags techniques (Hard Skills) -->
+                        <div class="stack-technique">
+                            <span class="etiquette-techno">React.js</span>
+                            <span class="etiquette-techno">Vue.js</span>
+                            <span class="etiquette-techno">Node.js</span>
+                            <span class="etiquette-techno">PHP / Laravel</span>
+                            <span class="etiquette-techno">Symfony</span>
+                            <span class="etiquette-techno">MongoDB</span>
+                            <span class="etiquette-techno">MySQL</span>
+                            <span class="etiquette-techno">Docker</span>
+                            <span class="etiquette-techno">AWS</span>
+                        </div>
+
+                        <!-- Points forts -->
+                        <div class="points-forts">
+                            <div class="element-point-fort">
+                                <div class="icone-point-fort">
+                                    <i class="fas fa-bolt" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <h4>Code Propre & Maintenable</h4>
+                                    <p>Standards PSR, tests unitaires, documentation intégrée</p>
+                                </div>
+                            </div>
+
+                            <div class="element-point-fort">
+                                <div class="icone-point-fort">
+                                    <i class="fas fa-rocket" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <h4>Performance Optimale</h4>
+                                    <p>Scores Lighthouse > 90, chargement rapide et SEO prêt</p>
+                                </div>
+                            </div>
+
+                            <div class="element-point-fort">
+                                <div class="icone-point-fort">
+                                    <i class="fas fa-mobile-screen" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <h4>Design Responsive</h4>
+                                    <p>Expérience fluide du mobile à l'écran 4K</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Boutons d'action -->
+                        <div class="actions-apropos">
+                            <a href="assets/cv-marino-aidomoan.pdf" download class="bouton bouton-primaire">
+                                <i class="fas fa-download" aria-hidden="true"></i>
+                                Télécharger mon CV
+                            </a>
+                            <a href="#contact" class="bouton bouton-secondaire">
+                                <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                                Discutons de votre projet
+                            </a>
+                        </div>
+
+                        <!-- Réseaux sociaux -->
+                        <div class="reseaux-sociaux">
+                            <span>Retrouvez-moi sur :</span>
+                            <a href="#" aria-label="GitHub">
+                                <i class="fab fa-github" aria-hidden="true"></i>
+                            </a>
+                            <a href="#" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                            </a>
+                            <a href="#" aria-label="Twitter / X">
+                                <i class="fab fa-x-twitter" aria-hidden="true"></i>
+                            </a>
+                        </div>
+
+                    </div> <!-- fin colonne-contenu -->
+                </div> <!-- fin grille-apropos -->
+            </div> <!-- fin conteneur -->
+
         </section>
 
         <section id="competences" class="skills">
+
+            <div class="conteneur">
+
+                <!-- En-tête -->
+                <div class="en-tete-section centre">
+                    <span class="label-section">Ma Stack Technique</span>
+                    <h2 class="titre-section">Compétences & Technologies</h2>
+                    <p class="description-section">
+                        Technologies et outils que je maîtrise pour créer des solutions web complètes
+                    </p>
+                </div>
+
+                <!-- Grille des compétences (3 colonnes) -->
+                <div class="grille-competences">
+
+                    <!-- ===== CATÉGORIE : FRONT-END ===== -->
+                    <div class="categorie-competence">
+                        <div class="entete-categorie">
+                            <i class="fas fa-laptop-code" aria-hidden="true"></i>
+                            <h3 class="titre-categorie">Front-End</h3>
+                        </div>
+                        <div class="liste-technos">
+                            <span class="techno">
+                                <i class="fab fa-html5" aria-hidden="true"></i>
+                                HTML
+                            </span>
+                            <span class="techno">
+                                <i class="fab fa-css3-alt" aria-hidden="true"></i>
+                                CSS
+                            </span>
+                            <span class="techno">
+                                <i class="fab fa-js" aria-hidden="true"></i>
+                                JavaScript
+                            </span>
+                            <span class="techno">
+                                <i class="fab fa-react" aria-hidden="true"></i>
+                                React
+                            </span>
+                            <span class="techno">
+                                <i class="fab fa-vuejs" aria-hidden="true"></i>
+                                Vue.js
+                            </span>
+                            <span class="techno">
+                                <i class="fab fa-svelte" aria-hidden="true"></i>
+                                Svelte
+                            </span>
+                            <span class="techno">
+                                <i class="fab fa-tailwind" aria-hidden="true"></i>
+                                Tailwind
+                            </span>
+                            <span class="techno">
+                                <i class="fab fa-sass" aria-hidden="true"></i>
+                                SASS
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- ===== CATÉGORIE : BACK-END ===== -->
+                    <div class="categorie-competence">
+                        <div class="entete-categorie">
+                            <i class="fas fa-server" aria-hidden="true"></i>
+                            <h3 class="titre-categorie">Back-End</h3>
+                        </div>
+                        <div class="liste-technos">
+                            <span class="techno">
+                                <i class="fab fa-php" aria-hidden="true"></i>
+                                PHP
+                            </span>
+                            <span class="techno">
+                                <i class="fab fa-laravel" aria-hidden="true"></i>
+                                Laravel
+                            </span>
+                            <span class="techno">
+                                <i class="fab fa-node-js" aria-hidden="true"></i>
+                                Node.js
+                            </span>
+                            <span class="techno">
+                                <i class="fas fa-bolt" aria-hidden="true"></i>
+                                Express
+                            </span>
+                            <span class="techno">
+                                <i class="fas fa-database" aria-hidden="true"></i>
+                                MySQL
+                            </span>
+                            <span class="techno">
+                                <i class="fas fa-leaf" aria-hidden="true"></i>
+                                MongoDB
+                            </span>
+                            <span class="techno">
+                                <i class="fas fa-database" aria-hidden="true"></i>
+                                Prisma
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- ===== CATÉGORIE : OUTILS & AUTRES ===== -->
+                    <div class="categorie-competence">
+                        <div class="entete-categorie">
+                            <i class="fas fa-tools" aria-hidden="true"></i>
+                            <h3 class="titre-categorie">Outils & Autres</h3>
+                        </div>
+                        <div class="liste-technos">
+                            <span class="techno">
+                                <i class="fab fa-git-alt" aria-hidden="true"></i>
+                                Git
+                            </span>
+                            <span class="techno">
+                                <i class="fab fa-github" aria-hidden="true"></i>
+                                GitHub
+                            </span>
+                            <span class="techno">
+                                <i class="fab fa-docker" aria-hidden="true"></i>
+                                Docker
+                            </span>
+                            <span class="techno">
+                                <i class="fab fa-aws" aria-hidden="true"></i>
+                                AWS
+                            </span>
+                            <span class="techno">
+                                <i class="fab fa-wordpress" aria-hidden="true"></i>
+                                WordPress
+                            </span>
+                            <span class="techno">
+                                <i class="fas fa-paint-brush" aria-hidden="true"></i>
+                                Figma
+                            </span>
+                            <span class="techno">
+                                <i class="fas fa-code" aria-hidden="true"></i>
+                                VS Code
+                            </span>
+                            <span class="techno">
+                                <i class="fas fa-mobile-screen" aria-hidden="true"></i>
+                                Responsive
+                            </span>
+                        </div>
+                    </div>
+
+                </div> <!-- fin grille-competences -->
+            </div> <!-- fin conteneur -->
 
         </section>
 
