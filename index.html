@@ -388,9 +388,428 @@
 
         <section id="portfolio" class="portfolio">
 
+            <div class="conteneur">
+
+                <!-- En-tête -->
+                <div class="en-tete-section centre">
+                    <span class="label-section">Mes Réalisations</span>
+                    <h2 class="titre-section">Portfolio</h2>
+                    <p class="description-section">
+                        Une sélection de projets que j'ai développés, du design à la mise en production
+                    </p>
+                </div>
+
+                <!-- Filtres -->
+                <div class="filtres-portfolio">
+                    <button class="bouton-filtre actif" data-filtre="tous">Tous</button>
+                    <button class="bouton-filtre" data-filtre="frontend">Front-end</button>
+                    <button class="bouton-filtre" data-filtre="backend">Back-end</button>
+                    <button class="bouton-filtre" data-filtre="fullstack">Full Stack</button>
+                </div>
+
+                <!-- Grille des projets -->
+                <div class="grille-projets">
+
+                    <!-- ======================================== -->
+                    <!-- PROJET 1 : PORTFOLIO PERSONNEL (Full Stack) -->
+                    <!-- ======================================== -->
+                    <article class="carte-projet" data-categorie="fullstack">
+                        <div class="image-projet">
+                            <img 
+                                src="assets/images/projets/portfolio.jpg" 
+                                alt="Portfolio personnel de Marino AIDOMOAN" 
+                                class="image-projet-visuel"
+                                loading="lazy"
+                            >
+                            <div class="survol-projet">
+                                <div class="liens-projet">
+                                    <a href="#" class="lien-projet" target="_blank" rel="noopener">
+                                        <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                        <span>Voir le site</span>
+                                    </a>
+                                    <a href="#" class="lien-projet" target="_blank" rel="noopener">
+                                        <i class="fab fa-github" aria-hidden="true"></i>
+                                        <span>Code</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="infos-projet">
+                            <div class="tags-projet">
+                                <span class="tag-projet"><i class="fab fa-html5" aria-hidden="true"></i> HTML5</span>
+                                <span class="tag-projet"><i class="fab fa-css3-alt" aria-hidden="true"></i> CSS3</span>
+                                <span class="tag-projet"><i class="fab fa-js" aria-hidden="true"></i> JavaScript</span>
+                            </div>
+                            <h3 class="titre-projet">Portfolio Personnel</h3>
+                            <p class="description-projet">
+                                Mon portfolio personnel développé pour présenter mes compétences, mes projets et mon parcours.
+                                Interface responsive, mode clair/sombre, animations fluides et accessibilité.
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- ======================================== -->
+                    <!-- PROJET 2 : E-COMMERCE (Full Stack)        -->
+                    <!-- ======================================== -->
+                    <article class="carte-projet" data-categorie="fullstack">
+                        <div class="image-projet">
+                            <img 
+                                src="assets/images/projets/ecommerce.jpg" 
+                                alt="Application E-commerce Moderne" 
+                                class="image-projet-visuel"
+                                loading="lazy"
+                            >
+                            <div class="survol-projet">
+                                <div class="liens-projet">
+                                    <a href="#" class="lien-projet" target="_blank" rel="noopener">
+                                        <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                        <span>Voir le site</span>
+                                    </a>
+                                    <a href="#" class="lien-projet" target="_blank" rel="noopener">
+                                        <i class="fab fa-github" aria-hidden="true"></i>
+                                        <span>Code</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="infos-projet">
+                            <div class="tags-projet">
+                                <span class="tag-projet"><i class="fab fa-react" aria-hidden="true"></i> React</span>
+                                <span class="tag-projet"><i class="fab fa-node-js" aria-hidden="true"></i> Node.js</span>
+                                <span class="tag-projet"><i class="fas fa-database" aria-hidden="true"></i> MongoDB</span>
+                            </div>
+                            <h3 class="titre-projet">Application E-commerce</h3>
+                            <p class="description-projet">
+                                Plateforme e-commerce complète avec catalogue de produits, panier, paiement sécurisé (Stripe),
+                                espace client et interface d'administration. Optimisée pour le référencement.
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- ======================================== -->
+                    <!-- PROJET 3 : DASHBOARD ANALYTIQUE (Front-end) -->
+                    <!-- ======================================== -->
+                    <article class="carte-projet" data-categorie="frontend">
+                        <div class="image-projet">
+                            <img 
+                                src="assets/images/projets/dashboard.jpg" 
+                                alt="Dashboard Analytique" 
+                                class="image-projet-visuel"
+                                loading="lazy"
+                            >
+                            <div class="survol-projet">
+                                <div class="liens-projet">
+                                    <a href="#" class="lien-projet" target="_blank" rel="noopener">
+                                        <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                        <span>Voir le site</span>
+                                    </a>
+                                    <a href="#" class="lien-projet" target="_blank" rel="noopener">
+                                        <i class="fab fa-github" aria-hidden="true"></i>
+                                        <span>Code</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="infos-projet">
+                            <div class="tags-projet">
+                                <span class="tag-projet"><i class="fab fa-react" aria-hidden="true"></i> React</span>
+                                <span class="tag-projet"><i class="fas fa-chart-pie" aria-hidden="true"></i> Chart.js</span>
+                                <span class="tag-projet"><i class="fab fa-tailwind" aria-hidden="true"></i> Tailwind</span>
+                            </div>
+                            <h3 class="titre-projet">Dashboard Analytique</h3>
+                            <p class="description-projet">
+                                Interface de visualisation de données en temps réel avec graphiques interactifs,
+                                filtres avancés et export de rapports. Intégration d'APIs externes pour les métriques.
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- ======================================== -->
+                    <!-- PROJET 4 : API TASK MANAGER (Back-end)    -->
+                    <!-- ======================================== -->
+                    <article class="carte-projet" data-categorie="backend">
+                        <div class="image-projet">
+                            <img 
+                                src="assets/images/projets/task-api.jpg" 
+                                alt="API Task Manager" 
+                                class="image-projet-visuel"
+                                loading="lazy"
+                            >
+                            <div class="survol-projet">
+                                <div class="liens-projet">
+                                    <a href="#" class="lien-projet" target="_blank" rel="noopener">
+                                        <i class="fas fa-book" aria-hidden="true"></i>
+                                        <span>API Docs</span>
+                                    </a>
+                                    <a href="#" class="lien-projet" target="_blank" rel="noopener">
+                                        <i class="fab fa-github" aria-hidden="true"></i>
+                                        <span>Code</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="infos-projet">
+                            <div class="tags-projet">
+                                <span class="tag-projet"><i class="fab fa-node-js" aria-hidden="true"></i> Node.js</span>
+                                <span class="tag-projet"><i class="fas fa-bolt" aria-hidden="true"></i> Express</span>
+                                <span class="tag-projet"><i class="fas fa-database" aria-hidden="true"></i> PostgreSQL</span>
+                            </div>
+                            <h3 class="titre-projet">API Task Manager</h3>
+                            <p class="description-projet">
+                                API RESTful complète pour la gestion de tâches avec authentification JWT,
+                                gestion d'équipes, autorisations fines et documentation Swagger.
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- ======================================== -->
+                    <!-- PROJET 5 : PLATEFORME DE BLOG (Full Stack) -->
+                    <!-- ======================================== -->
+                    <article class="carte-projet" data-categorie="fullstack">
+                        <div class="image-projet">
+                            <img 
+                                src="assets/images/projets/blog.jpg" 
+                                alt="Plateforme de Blog" 
+                                class="image-projet-visuel"
+                                loading="lazy"
+                            >
+                            <div class="survol-projet">
+                                <div class="liens-projet">
+                                    <a href="#" class="lien-projet" target="_blank" rel="noopener">
+                                        <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                        <span>Voir le site</span>
+                                    </a>
+                                    <a href="#" class="lien-projet" target="_blank" rel="noopener">
+                                        <i class="fab fa-github" aria-hidden="true"></i>
+                                        <span>Code</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="infos-projet">
+                            <div class="tags-projet">
+                                <span class="tag-projet"><i class="fas fa-next" aria-hidden="true"></i> Next.js</span>
+                                <span class="tag-projet"><i class="fas fa-database" aria-hidden="true"></i> Prisma</span>
+                                <span class="tag-projet"><i class="fas fa-database" aria-hidden="true"></i> PostgreSQL</span>
+                            </div>
+                            <h3 class="titre-projet">Plateforme de Blog</h3>
+                            <p class="description-projet">
+                                CMS personnalisé avec éditeur Markdown, système de commentaires, catégories et tags.
+                                Optimisé SEO avec métadonnées dynamiques et performance Lighthouse > 95.
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- ======================================== -->
+                    <!-- PROJET 6 : CHAT EN TEMPS RÉEL (Back-end)  -->
+                    <!-- ======================================== -->
+                    <article class="carte-projet" data-categorie="backend">
+                        <div class="image-projet">
+                            <img 
+                                src="assets/images/projets/chat.jpg" 
+                                alt="Application Chat en Temps Réel" 
+                                class="image-projet-visuel"
+                                loading="lazy"
+                            >
+                            <div class="survol-projet">
+                                <div class="liens-projet">
+                                    <a href="#" class="lien-projet" target="_blank" rel="noopener">
+                                        <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                        <span>Voir le site</span>
+                                    </a>
+                                    <a href="#" class="lien-projet" target="_blank" rel="noopener">
+                                        <i class="fab fa-github" aria-hidden="true"></i>
+                                        <span>Code</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="infos-projet">
+                            <div class="tags-projet">
+                                <span class="tag-projet"><i class="fas fa-bolt" aria-hidden="true"></i> Socket.io</span>
+                                <span class="tag-projet"><i class="fab fa-node-js" aria-hidden="true"></i> Node.js</span>
+                                <span class="tag-projet"><i class="fas fa-database" aria-hidden="true"></i> Redis</span>
+                            </div>
+                            <h3 class="titre-projet">Chat en Temps Réel</h3>
+                            <p class="description-projet">
+                                Application de messagerie instantanée avec salons publics/privés, notifications,
+                                partage de fichiers et historique des messages. Scalable pour des milliers d'utilisateurs.
+                            </p>
+                        </div>
+                    </article>
+
+                </div> <!-- fin grille-projets -->
+            </div> <!-- fin conteneur -->
+
         </section>
 
         <section id="contact" class="contact">
+
+            <div class="conteneur">
+
+                <!-- En-tête -->
+                <div class="en-tete-section centre">
+                    <span class="label-section">Travaillons Ensemble</span>
+                    <h2 class="titre-section">Contactez-moi</h2>
+                    <p class="description-section">
+                        Un projet en tête ? N'hésitez pas à me contacter pour en discuter
+                    </p>
+                </div>
+
+                <!-- Grille Contact -->
+                <div class="grille-contact">
+
+                    <!-- ===== COLONNE GAUCHE : INFORMATIONS ===== -->
+                    <div class="infos-contact">
+
+                        <h3 class="sous-titre-contact">Informations de contact</h3>
+                        <p class="texte-contact">
+                            Je suis toujours ouvert à de nouvelles opportunités et collaborations.
+                            Que ce soit pour un projet freelance, une mission ou simplement pour échanger,
+                            je serais ravi de vous entendre.
+                        </p>
+
+                        <!-- Détails de contact -->
+                        <div class="details-contact">
+
+                            <!-- Email -->
+                            <div class="item-contact">
+                                <div class="icone-contact">
+                                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <h4>Email</h4>
+                                    <a href="mailto:marinoaidomoan@gmail.com">marinoaidomoan@gmail.com</a>
+                                </div>
+                            </div>
+
+                            <!-- Téléphone -->
+                            <div class="item-contact">
+                                <div class="icone-contact">
+                                    <i class="fas fa-phone-alt" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <h4>Téléphone</h4>
+                                    <a href="tel:+2290161147314">+229 01 61 14 73 14</a>
+                                </div>
+                            </div>
+
+                            <!-- WhatsApp -->
+                            <div class="item-contact">
+                                <div class="icone-contact">
+                                    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <h4>WhatsApp</h4>
+                                    <a href="https://wa.me/2290161147314" target="_blank" rel="noopener">
+                                        +229 01 61 14 73 14
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Localisation -->
+                            <div class="item-contact">
+                                <div class="icone-contact">
+                                    <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <h4>Localisation</h4>
+                                    <p>Cotonou, Bénin</p>
+                                </div>
+                            </div>
+
+                            <!-- Disponibilité -->
+                            <div class="item-contact">
+                                <div class="icone-contact">
+                                    <i class="fas fa-clock" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <h4>Disponibilité</h4>
+                                    <p>Lun - Ven : 9h - 18h (heure locale)</p>
+                                    <p class="disponible-tag">🟢 Disponible</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Liens rapides -->
+                        <div class="liens-rapides">
+                            <a href="mailto:marinoaidomoan@gmail.com" class="lien-rapide">
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
+                                m'envoyer un email
+                            </a>
+                            <a href="https://wa.me/2290161147314" target="_blank" rel="noopener" class="lien-rapide whatsapp">
+                                <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                                m'écrire sur WhatsApp
+                            </a>
+                        </div>
+
+                        <!-- Réseaux sociaux (sans CodePen) -->
+                        <div class="reseaux-sociaux-contact">
+                            <a href="https://github.com/ton-compte" target="_blank" rel="noopener" aria-label="GitHub">
+                                <i class="fab fa-github" aria-hidden="true"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/ton-compte" target="_blank" rel="noopener" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                            </a>
+                            <a href="https://twitter.com/ton-compte" target="_blank" rel="noopener" aria-label="Twitter">
+                                <i class="fab fa-twitter" aria-hidden="true"></i>
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <!-- ===== COLONNE DROITE : FORMULAIRE ===== -->
+                    <form id="formulaire-contact" class="formulaire-contact" novalidate>
+
+                        <div class="ligne-formulaire">
+                            <div class="groupe-formulaire">
+                                <label for="nom">Nom complet *</label>
+                                <input type="text" id="nom" name="nom" required placeholder="Votre nom complet">
+                            </div>
+                            <div class="groupe-formulaire">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required placeholder="votre@email.com">
+                            </div>
+                        </div>
+
+                        <div class="groupe-formulaire">
+                            <label for="sujet">Sujet *</label>
+                            <input type="text" id="sujet" name="sujet" required placeholder="Objet de votre message">
+                        </div>
+
+                        <div class="groupe-formulaire">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="6" required placeholder="Décrivez votre projet..."></textarea>
+                        </div>
+
+                        <!-- Champ honeypot (anti-spam) -->
+                        <div class="champ-honeypot" style="position:absolute;left:-9999px;top:auto;">
+                            <label for="honeypot">Ne pas remplir</label>
+                            <input type="text" id="honeypot" name="honeypot" tabindex="-1" autocomplete="off">
+                        </div>
+
+                        <!-- Bouton d'envoi -->
+                        <button type="submit" class="bouton bouton-primaire bouton-envoi" id="bouton-envoi">
+                            <span class="texte-bouton">Envoyer le message</span>
+                            <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                            <span class="spinner" style="display:none;">
+                                <i class="fas fa-spinner fa-spin" aria-hidden="true"></i>
+                            </span>
+                        </button>
+
+                        <!-- Message de succès (caché initialement) -->
+                        <div class="message-succes" id="message-succes" role="status" aria-live="polite">
+                            <div class="icone-succes" aria-hidden="true"><i class="fa-solid fa-check"></i></div>
+                            <h3>Message envoyé avec succès !</h3>
+                            <p>Merci pour votre confiance. Je vous recontactera dans les meilleurs délais.</p>
+                        </div>
+
+                    </form>
+
+                </div> <!-- fin grille-contact -->
+
+            </div> <!-- fin conteneur -->
 
         </section>
 
