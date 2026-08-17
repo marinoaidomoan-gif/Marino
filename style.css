@@ -1,0 +1,301 @@
+/* ==========================================================================
+   MARINO AIDOMOAN — Portfolio
+   Clair = tirage diazo (papier ivoire, encre indigo)
+   Sombre = cyanotype (fond bleu profond, traits clairs)
+   ========================================================================== */
+
+/* ----- 1. Variables (design tokens) ----- */
+
+:root {
+    /* Mode clair (diazo) — thème par défaut */
+    --couleur-fond: #F3F1E9;
+    --couleur-surface: #EAE6D9;
+    --couleur-surface-2: #E1DCC9;
+    --couleur-texte: #16305C;
+    --couleur-texte-att: #4A5B7A;
+    --couleur-accent: #B5652E;
+    --couleur-accent-clair: #C97D48;
+    --couleur-accent-2: #5C7D6E;
+    --couleur-bordure: #C9C3B0;
+    --couleur-erreur: #B5452E;
+
+    /* Typographie */
+    --police-titre: 'Space Grotesk', sans-serif;
+    --police-corps: 'Inter', sans-serif;
+    --police-mono: 'IBM Plex Mono', monospace;
+
+    /* Échelle de type */
+    --taille-xs: 0.75rem;
+    --taille-sm: 0.875rem;
+    --taille-base: 1rem;
+    --taille-md: 1.125rem;
+    --taille-lg: 1.375rem;
+    --taille-xl: 1.75rem;
+    --taille-2xl: 2.5rem;
+    --taille-3xl: 3.5rem;
+
+    /* Espacement */
+    --espace-xs: 0.5rem;
+    --espace-sm: 1rem;
+    --espace-md: 1.5rem;
+    --espace-lg: 2.5rem;
+    --espace-xl: 4rem;
+    --espace-2xl: 6rem;
+
+    /* Structure */
+    --largeur-max: 1200px;
+    --rayon: 4px;
+    --rayon-lg: 8px;
+    --transition: 0.25s ease;
+
+    /* Ombres (discrètes, on n'est pas dans un style "carte flottante" générique) */
+    --ombre-sm: 0 1px 2px rgba(22, 48, 92, 0.08);
+    --ombre-md: 0 4px 12px rgba(22, 48, 92, 0.1);
+}
+
+/* Mode sombre (cyanotype) */
+[data-theme="sombre"] {
+    --couleur-fond: #0F2A4D;
+    --couleur-surface: #153761;
+    --couleur-surface-2: #1B4171;
+    --couleur-texte: #EDEFF2;
+    --couleur-texte-att: #A9BBD6;
+    --couleur-accent: #D68A52;
+    --couleur-accent-clair: #E4A06E;
+    --couleur-accent-2: #8FB5A3;
+    --couleur-bordure: #2A4A76;
+    --couleur-erreur: #E08066;
+
+    --ombre-sm: 0 1px 2px rgba(0, 0, 0, 0.25);
+    --ombre-md: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+/* ----- 2. Reset ----- */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px; /* compense le header fixe pour les ancres */
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+body {
+    font-family: var(--police-corps);
+    font-size: var(--taille-base);
+    line-height: 1.6;
+    color: var(--couleur-texte);
+    background-color: var(--couleur-fond);
+    transition: background-color var(--transition), color var(--transition);
+    /* Trame de plan très discrète en fond, signature du concept */
+    background-image:
+        linear-gradient(var(--couleur-bordure) 1px, transparent 1px),
+        linear-gradient(90deg, var(--couleur-bordure) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-attachment: fixed;
+    opacity: 1;
+}
+
+/* La trame doit rester très subtile : on l'atténue via un pseudo-fond plutôt
+   qu'en jouant sur l'opacité du body (qui affecterait le contenu aussi) */
+body {
+    background-image: none;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-image:
+        linear-gradient(var(--couleur-bordure) 1px, transparent 1px),
+        linear-gradient(90deg, var(--couleur-bordure) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+input,
+textarea,
+button {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+/* Focus clavier visible partout — non négociable pour l'accessibilité */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--couleur-accent);
+    outline-offset: 3px;
+}
+
+/* ----- 3. Typographie ----- */
+
+h1, h2, h3, h4 {
+    font-family: var(--police-titre);
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--couleur-texte);
+}
+
+h1 { font-size: var(--taille-3xl); }
+h2 { font-size: var(--taille-2xl); }
+h3 { font-size: var(--taille-lg); }
+h4 { font-size: var(--taille-md); }
+
+p {
+    color: var(--couleur-texte-att);
+}
+
+strong {
+    color: var(--couleur-texte);
+    font-weight: 600;
+}
+
+/* Utilitaire mono : réservé aux chiffres, cotes, tags techniques —
+   jamais à des blocs de texte entiers (on évite l'effet "éditeur de code") */
+.chiffre,
+.mono {
+    font-family: var(--police-mono);
+    font-variant-numeric: tabular-nums;
+}
+
+/* ----- 4. Layout ----- */
+
+.conteneur {
+    width: 100%;
+    max-width: var(--largeur-max);
+    margin-inline: auto;
+    padding-inline: var(--espace-md);
+}
+
+@media (max-width: 640px) {
+    .conteneur {
+        padding-inline: var(--espace-sm);
+    }
+}
+
+/* En-tête de section réutilisé partout (label + titre + description) */
+.en-tete-section {
+    margin-bottom: var(--espace-lg);
+}
+
+.en-tete-section.centre {
+    text-align: center;
+    max-width: 640px;
+    margin-inline: auto;
+    margin-bottom: var(--espace-xl);
+}
+
+.label-section {
+    display: inline-block;
+    font-family: var(--police-mono);
+    font-size: var(--taille-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--couleur-accent);
+    margin-bottom: var(--espace-xs);
+}
+
+/* Le label ressemble à une annotation de cote sur un plan : petits traits
+   de chaque côté, comme des repères de mesure */
+.label-section::before,
+.label-section::after {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 1px;
+    background: var(--couleur-accent);
+    vertical-align: middle;
+    margin: 0 6px 2px;
+}
+
+.titre-section {
+    font-size: var(--taille-2xl);
+}
+
+.description-section {
+    margin-top: var(--espace-sm);
+    font-size: var(--taille-md);
+}
+
+/* ----- 5. Boutons ----- */
+
+.bouton {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--espace-xs);
+    padding: 0.85rem 1.75rem;
+    font-size: var(--taille-sm);
+    font-weight: 600;
+    border-radius: var(--rayon);
+    border: 1px solid transparent;
+    transition: transform var(--transition), background-color var(--transition), border-color var(--transition);
+    white-space: nowrap;
+}
+
+.bouton:hover {
+    transform: translateY(-2px);
+}
+
+.bouton-primaire {
+    background-color: var(--couleur-accent);
+    color: #FFF8EF;
+}
+
+.bouton-primaire:hover {
+    background-color: var(--couleur-accent-clair);
+}
+
+.bouton-secondaire {
+    background-color: transparent;
+    color: var(--couleur-texte);
+    border-color: var(--couleur-bordure);
+}
+
+.bouton-secondaire:hover {
+    border-color: var(--couleur-accent);
+    color: var(--couleur-accent);
+}
