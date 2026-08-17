@@ -12,7 +12,7 @@
     --couleur-surface: #EAE6D9;
     --couleur-surface-2: #E1DCC9;
     --couleur-texte: #16305C;
-    --couleur-texte-att: #4A5B7A;
+    --couleur-texte-att: #33456A;
     --couleur-accent: #B5652E;
     --couleur-accent-clair: #C97D48;
     --couleur-accent-2: #5C7D6E;
@@ -298,4 +298,68 @@ strong {
 .bouton-secondaire:hover {
     border-color: var(--couleur-accent);
     color: var(--couleur-accent);
+}
+
+/* ======================================
+    HEADER & NAIGATIONS
+   ======================================= */
+
+   .en-tete {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background-color: color-mix(in srgb, var(--couleur-fond) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--couleur-bordure);
+}
+
+.barre-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--espace-md);
+    height: 76px;
+}
+
+.logo-image { height: 40px; width: auto; object-fit: contain; }
+
+.menu-liste {
+    display: flex;
+    align-items: center;
+    gap: var(--espace-lg);
+    margin-left: auto;
+    margin-right: var(--espace-lg);
+}
+
+.menu-lien {
+    position: relative;
+    font-family: var(--police-mono);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--couleur-texte-att);
+    padding: 0.4rem 0;
+    transition: color var(--transition);
+}
+
+/* petit trait qui se déploie sous le lien actif/survolé — esprit "cote" */
+.menu-lien::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: -2px;
+    width: 0; height: 2px;
+    background-color: var(--couleur-accent);
+    transition: width var(--transition);
+}
+.menu-lien:hover, .menu-lien.actif { color: var(--couleur-texte); }
+.menu-lien:hover::after, .menu-lien.actif::after { width: 100%; }
+
+.menu-lien-contact { color: var(--couleur-accent); }
+
+.bascule-theme, .bouton-menu-mobile { /* boutons icône ronds */  }
+
+@media (max-width: 860px) {
+    /* menu qui se transforme en dropdown plein-largeur sous le header */
+    .menu-liste.ouvert { transform: translateY(0); opacity: 1; visibility: visible; }
 }
