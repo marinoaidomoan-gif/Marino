@@ -310,7 +310,7 @@ strong {
     left: 0;
     right: 0;
     z-index: 100;
-    background-color: color-mix(in srgb, var(--couleur-fond) 88%, transparent);
+    background-color: color-mix(in srgb, var(--couleur-fond) 96%, transparent);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--couleur-bordure);
 }
@@ -430,13 +430,13 @@ strong {
 
 .carte-hero {
     position: relative;
-    z-index: 10; /* Pour être sûr qu'elle soit au-dessus des blobs */
-    background: rgba(255, 255, 255, 0.08); /* Fond blanc très transparent */
+    z-index: 10;
+    background: color-mix(in srgb, var(--couleur-surface) 55%, transparent);
     backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px); /* Pour Safari */
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid color-mix(in srgb, var(--couleur-bordure) 60%, transparent);
     border-radius: var(--rayon-lg);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    box-shadow: var(--ombre-md);
     overflow: hidden;
 }
 
@@ -551,46 +551,55 @@ strong {
 /* ======================================
     TOUJOURS HERO - ANIMATIONS
    ======================================= */
-/* --- ANIMATION DES BLOBS --- */
-.visual-hero {
-    position: relative; /* Important pour ancrer les blobs dedans */
+.visuel-hero {
+    position: relative;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    min-height: 560px;
 }
 
-/* Toutes les images de blobs sont en absolu par rapport à visual-hero */
+.blobs-hero {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
 .blob-img {
     position: absolute;
     will-change: transform;
-    animation: floatBlob 10s ease-in-out infinite alternate;
+    animation: floatBlob ease-in-out infinite alternate;
 }
 
-/* Applique des délais et durées différents pour éviter qu'ils bougent en même temps */
-.blob-img:nth-child(1) { /* Moyen */
-    animation-duration: 12s;
-    animation-delay: -2s;
-    /* Ajuste la taille selon tes images */
-    width: 120%; 
-}
-
-.blob-img:nth-child(2) { /* Grand */
-    animation-duration: 15s;
+.blob-img.grand {
+    top: -40px;
+    right: -90px;
+    width: 560px;
+    opacity: 0.95;
+    animation-duration: 16s;
     animation-delay: -5s;
-    width: 140%;
 }
 
-.blob-img:nth-child(3) { /* Petit */
-    animation-duration: 8s;
-    animation-delay: -1s;
-    width: 90%;
+.blob-img.moyen {
+    bottom: -50px;
+    left: -70px;
+    width: 420px;
+    opacity: 0.85;
+    animation-duration: 20s;
+    animation-delay: -2s;
+}
+
+.blob-img.petit {
+    bottom: -70px;
+    right: -10px;
+    width: 280px;
+    opacity: 0.9;
+    animation-duration: 13s;
+    animation-delay: -8s;
 }
 
 @keyframes floatBlob {
-    0% {
-        transform: translate(0px, 0px) rotate(-2deg) scale(1);
-    }
-    100% {
-        transform: translate(25px, -25px) rotate(3deg) scale(1.05);
-    }
+    0%   { transform: translate(0, 0) rotate(-2deg) scale(1); }
+    100% { transform: translate(22px, -22px) rotate(3deg) scale(1.06); }
 }
