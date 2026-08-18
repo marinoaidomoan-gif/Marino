@@ -363,3 +363,234 @@ strong {
     /* menu qui se transforme en dropdown plein-largeur sous le header */
     .menu-liste.ouvert { transform: translateY(0); opacity: 1; visibility: visible; }
 }
+
+/* ==========================================================================
+   8. HERO — structure & contenu
+   ========================================================================== */
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 76px; /* dégage le header fixe */
+    overflow: hidden;
+}
+
+.conteneur-hero {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: var(--espace-xl);
+}
+
+.etiquette-hero {
+    display: inline-block;
+    font-family: var(--police-mono);
+    font-size: var(--taille-sm);
+    font-weight: 500;
+    color: var(--couleur-accent);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: var(--espace-sm);
+}
+
+.titre-hero {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: var(--espace-md);
+}
+
+.salutation-hero {
+    font-size: var(--taille-lg);
+    font-weight: 500;
+    color: var(--couleur-texte-att);
+}
+
+.nom-hero {
+    font-size: var(--taille-3xl);
+    font-weight: 700;
+    color: var(--couleur-texte);
+}
+
+.description-hero {
+    font-size: var(--taille-md);
+    max-width: 46ch;
+    margin-bottom: var(--espace-lg);
+}
+
+.actions-hero {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espace-sm);
+}
+
+/* ----- Carte de stats ----- */
+
+.carte-hero {
+    position: relative;
+    z-index: 10; /* Pour être sûr qu'elle soit au-dessus des blobs */
+    background: rgba(255, 255, 255, 0.08); /* Fond blanc très transparent */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px); /* Pour Safari */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--rayon-lg);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    overflow: hidden;
+}
+
+.ligne-carte {
+    height: 4px;
+    background: linear-gradient(90deg, var(--couleur-accent), var(--couleur-accent-2));
+}
+
+.contenu-carte {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.stat-carte {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.35rem;
+    padding: var(--espace-lg) var(--espace-sm);
+    border-right: 1px solid var(--couleur-bordure);
+    border-bottom: 1px solid var(--couleur-bordure);
+}
+
+.stat-carte:nth-child(2n) {
+    border-right: none;
+}
+
+.stat-carte:last-child,
+.stat-carte:nth-last-child(2):nth-child(odd) {
+    border-bottom: none;
+}
+
+.chiffre-stat {
+    font-size: var(--taille-2xl);
+    font-weight: 700;
+    color: var(--couleur-accent);
+}
+
+.libelle-stat {
+    font-size: var(--taille-xs);
+    color: var(--couleur-texte-att);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+/* ----- Indicateur de scroll ----- */
+
+.indicateur-scroll {
+    position: absolute;
+    bottom: var(--espace-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.indicateur-scroll span {
+    font-family: var(--police-mono);
+    font-size: var(--taille-xs);
+    color: var(--couleur-texte-att);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.ligne-scroll {
+    width: 1px;
+    height: 32px;
+    background: linear-gradient(var(--couleur-accent), transparent);
+    position: relative;
+    overflow: hidden;
+}
+
+.ligne-scroll::after {
+    content: "";
+    position: absolute;
+    top: -32px;
+    left: 0;
+    width: 100%;
+    height: 32px;
+    background: linear-gradient(var(--couleur-accent), transparent);
+    animation: descendre-scroll 1.8s ease-in-out infinite;
+}
+
+@keyframes descendre-scroll {
+    to { top: 32px; }
+}
+
+/* ----- Responsive ----- */
+
+@media (max-width: 860px) {
+    .conteneur-hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .description-hero {
+        margin-inline: auto;
+    }
+
+    .actions-hero {
+        justify-content: center;
+    }
+
+    .nom-hero {
+        font-size: var(--taille-2xl);
+    }
+}
+
+/* ======================================
+    TOUJOURS HERO - ANIMATIONS
+   ======================================= */
+/* --- ANIMATION DES BLOBS --- */
+.visual-hero {
+    position: relative; /* Important pour ancrer les blobs dedans */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Toutes les images de blobs sont en absolu par rapport à visual-hero */
+.blob-img {
+    position: absolute;
+    will-change: transform;
+    animation: floatBlob 10s ease-in-out infinite alternate;
+}
+
+/* Applique des délais et durées différents pour éviter qu'ils bougent en même temps */
+.blob-img:nth-child(1) { /* Moyen */
+    animation-duration: 12s;
+    animation-delay: -2s;
+    /* Ajuste la taille selon tes images */
+    width: 120%; 
+}
+
+.blob-img:nth-child(2) { /* Grand */
+    animation-duration: 15s;
+    animation-delay: -5s;
+    width: 140%;
+}
+
+.blob-img:nth-child(3) { /* Petit */
+    animation-duration: 8s;
+    animation-delay: -1s;
+    width: 90%;
+}
+
+@keyframes floatBlob {
+    0% {
+        transform: translate(0px, 0px) rotate(-2deg) scale(1);
+    }
+    100% {
+        transform: translate(25px, -25px) rotate(3deg) scale(1.05);
+    }
+}
