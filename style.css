@@ -864,7 +864,7 @@ strong {
 }
 
 /* ==========================================================================
-   9. COMPÉTENCES
+    COMPÉTENCES
    ========================================================================== */
 
 .skills {
@@ -956,4 +956,165 @@ strong {
     width: 1.1em;
     height: 1.1em;
     object-fit: contain;
+}
+
+/* ==========================================================================
+    PORTFOLIO
+   ========================================================================== */
+
+.portfolio { padding-block: var(--espace-2xl); }
+
+.filtres-portfolio {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-bottom: var(--espace-xl);
+}
+
+.bouton-filtre {
+    padding: 0.55rem 1.2rem;
+    font-family: var(--police-mono);
+    font-size: var(--taille-sm);
+    color: var(--couleur-texte-att);
+    border: 1px solid var(--couleur-bordure);
+    border-radius: 999px;
+    transition: border-color var(--transition), color var(--transition), background-color var(--transition);
+}
+.bouton-filtre:hover { border-color: var(--couleur-accent); color: var(--couleur-accent); }
+.bouton-filtre.actif {
+    background-color: var(--couleur-accent);
+    border-color: var(--couleur-accent);
+    color: #FFF8EF;
+}
+
+.grille-projets {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--espace-md);
+}
+
+.carte-projet {
+    background-color: var(--couleur-surface);
+    border: 1px solid var(--couleur-bordure);
+    border-radius: var(--rayon-lg);
+    overflow: hidden;
+    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.carte-projet:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--ombre-md);
+    border-color: var(--couleur-accent);
+}
+.carte-projet.masque { display: none; } /* utilisé par le futur filtre JS */
+
+.image-projet {
+    position: relative;
+    height: 200px; /* hauteur fixe, plus de 16/10 qui explose en grand écran */
+    overflow: hidden;
+    background-color: var(--couleur-surface-2);
+}
+
+/* icône placeholder tant qu'il n'y a pas de vraie image (disparaît d'elle-même
+   une fois la photo chargée, puisqu'elle passe derrière) */
+.image-projet::before {
+    content: "\f03e";
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--couleur-bordure);
+}
+
+.image-projet-visuel {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+.carte-projet:hover .image-projet-visuel { transform: scale(1.06); }
+
+.survol-projet {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    background-color: color-mix(in srgb, var(--couleur-fond) 55%, transparent);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    transition: opacity var(--transition);
+}
+.carte-projet:hover .survol-projet { opacity: 1; }
+
+.liens-projet { display: flex; gap: 0.75rem; }
+
+.lien-projet {
+    display: flex; align-items: center; gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    background-color: var(--couleur-fond);
+    color: var(--couleur-texte);
+    border-radius: var(--rayon);
+    font-size: var(--taille-sm);
+    font-weight: 600;
+    transform: translateY(8px);
+    opacity: 0;
+    transition: transform var(--transition), opacity var(--transition), background-color var(--transition);
+}
+.carte-projet:hover .lien-projet { transform: translateY(0); opacity: 1; }
+.lien-projet:hover { background-color: var(--couleur-accent); color: #FFF8EF; }
+
+.infos-projet { padding: var(--espace-md); }
+
+.tags-projet {
+    display: flex; flex-wrap: wrap; gap: 0.4rem;
+    margin-bottom: var(--espace-sm);
+}
+
+.tag-projet {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.3rem 0.65rem;
+    font-family: var(--police-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--couleur-texte);
+    background-color: var(--couleur-surface-2);
+    border: 1px solid var(--couleur-bordure);
+    border-radius: 999px;
+}
+
+.tag-projet i {
+    color: var(--couleur-accent);
+}
+
+.titre-projet { font-size: var(--taille-md); margin-bottom: 0.5rem; }
+.description-projet { font-size: var(--taille-sm); }
+
+@media (max-width: 1100px) {
+    .grille-projets {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 780px) {
+    .grille-projets { grid-template-columns: 1fr; }
+
+    .survol-projet {
+        position: static;
+        background: none;
+        backdrop-filter: none;
+        opacity: 1;
+        padding-top: var(--espace-sm);
+    }
+    .lien-projet { transform: none; opacity: 1; background-color: var(--couleur-surface-2); }
+
+    .grille-projets {
+        grid-template-columns: 1fr;
+    }
 }
