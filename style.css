@@ -862,3 +862,98 @@ strong {
         margin-inline: auto;
     }
 }
+
+/* ==========================================================================
+   9. COMPÉTENCES
+   ========================================================================== */
+
+.skills {
+    padding-block: var(--espace-2xl);
+}
+
+.grille-competences {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espace-xl);
+}
+
+.categorie-competence {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espace-md);
+}
+
+.entete-categorie {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--couleur-bordure);
+}
+
+.entete-categorie i {
+    color: var(--couleur-accent);
+    font-size: var(--taille-sm);
+}
+
+.titre-categorie {
+    font-family: var(--police-mono);
+    font-size: var(--taille-sm);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--couleur-texte-att);
+}
+
+.liste-technos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.techno {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.7rem 1.1rem;
+    font-size: var(--taille-base);
+    font-weight: 500;
+    color: var(--couleur-texte);
+    background-color: var(--couleur-surface);
+    border-radius: 12px;
+    transition: transform var(--transition), background-color var(--transition);
+}
+
+.techno:hover {
+    transform: translateY(-2px);
+    background-color: var(--couleur-surface-2);
+}
+
+.techno i {
+    font-size: var(--taille-lg);
+    color: var(--couleur-texte-att);
+}
+
+/* Couleurs de marque réelles, comme sur ta référence */
+.techno i.fa-html5      { color: #E34F26; }
+.techno i.fa-css3-alt    { color: #1572B6; }
+.techno i.fa-js          { color: #F7DF1E; }
+.techno i.fa-react       { color: #61DAFB; }
+.techno i.fa-vuejs       { color: #4FC08D; }
+.techno i.fa-svelte      { color: #FF3E00; }
+.techno i.fa-tailwind    { color: #38BDF8; }
+.techno i.fa-sass        { color: #CC6699; }
+.techno i.fa-php         { color: #777BB4; }
+.techno i.fa-laravel     { color: #FF2D20; }
+.techno i.fa-node-js     { color: #5FA04E; }
+.techno i.fa-git-alt     { color: #F05032; }
+.techno i.fa-github      { color: var(--couleur-texte); }
+.techno i.fa-docker      { color: #2496ED; }
+.techno i.fa-aws         { color: #FF9900; }
+.techno i.fa-wordpress   { color: #21759B; }
+
+.icone-marque {
+    width: 1.1em;
+    height: 1.1em;
+    object-fit: contain;
+}
