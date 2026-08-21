@@ -32,6 +32,7 @@
                 <li><a href="#accueil" class="menu-lien">Accueil</a></li>
                 <li><a href="#apropos" class="menu-lien">À propos</a></li>
                 <li><a href="#competences" class="menu-lien">Compétences</a></li>
+                <li><a href="#services" class="menu-lien">Services</a></li>
                 <li><a href="#portfolio" class="menu-lien">Portfolio</a></li>
                 <li><a href="#contact" class="menu-lien menu-lien-contact">Contact</a></li>
             </ul>
@@ -977,8 +978,8 @@
                     Tous droits réservés.
                 </p>
                 <p class="mentions-legales">
-                    <a href="#">Mentions légales</a> | 
-                    <a href="#">Politique de confidentialité</a>
+                    <a href="#" data-ouvrir-modale="mentions-legales">Mentions légales</a> | 
+                    <a href="#" data-ouvrir-modale="politique-confidentialite">Politique de confidentialité</a>
                 </p>
             </div>
 
@@ -988,6 +989,27 @@
     <button class="bouton-remonter" id="bouton-remonter" aria-label="Retour en haut">
         <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
+
+    <!-- ===== MODALES LÉGALES ===== -->
+    <div class="fond-modale" id="fond-modale">
+
+        <div class="modale" id="modale-mentions-legales">
+            <button class="fermer-modale" data-fermer-modale aria-label="Fermer">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3>Mentions légales</h3>
+            <p>Ce site est un portfolio personnel édité par Marino AIDOMOAN, basé à Cotonou, Bénin. Il présente des projets et compétences à titre professionnel, sans activité commerciale directe en ligne. Le site est hébergé par Vercel Inc. Pour toute question, utilisez le formulaire de contact.</p>
+        </div>
+
+        <div class="modale" id="modale-politique-confidentialite">
+            <button class="fermer-modale" data-fermer-modale aria-label="Fermer">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3>Politique de confidentialité</h3>
+            <p>Les informations transmises via le formulaire de contact (nom, email, message) sont utilisées uniquement pour vous répondre. Elles ne sont ni revendues, ni partagées avec des tiers, ni utilisées à des fins de tracking ou de publicité. Aucun cookie de suivi n'est utilisé sur ce site.</p>
+        </div>
+
+    </div>
 
     <script src="script.js" defer></script>
     
