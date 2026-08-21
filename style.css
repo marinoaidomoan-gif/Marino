@@ -1405,3 +1405,65 @@ strong {
     .grille-pied { grid-template-columns: 1fr; }
     .copyright-pied { flex-direction: column; text-align: center; }
 }
+
+/* ==========================================================================
+   PARCOURS — version A : timeline verticale
+   ========================================================================== */
+
+.parcours {
+    padding-block: var(--espace-2xl);
+}
+
+.liste-parcours {
+    max-width: 640px;
+    margin-inline: auto;
+    position: relative;
+    padding-left: var(--espace-lg);
+    border-left: 2px solid var(--couleur-bordure);
+}
+
+.etape-parcours {
+    position: relative;
+    padding-bottom: var(--espace-xl);
+}
+
+.etape-parcours:last-child {
+    padding-bottom: 0;
+}
+
+/* le point sur la ligne */
+.etape-parcours::before {
+    content: "";
+    position: absolute;
+    left: calc(-1 * var(--espace-lg) - 6px);
+    top: 4px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--couleur-fond);
+    border: 2px solid var(--couleur-accent);
+}
+
+.etape-parcours.actuel::before {
+    background-color: var(--couleur-accent);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--couleur-accent) 20%, transparent);
+}
+
+.date-parcours {
+    display: inline-block;
+    font-family: var(--police-mono);
+    font-size: var(--taille-xs);
+    color: var(--couleur-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.4rem;
+}
+
+.contenu-etape h3 {
+    font-size: var(--taille-md);
+    margin-bottom: 0.25rem;
+}
+
+.contenu-etape p {
+    font-size: var(--taille-sm);
+}
