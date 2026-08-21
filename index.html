@@ -482,260 +482,157 @@
 
         <section id="portfolio" class="portfolio">
 
-            <div class="conteneur">
+    <div class="conteneur">
 
-                <!-- En-tête -->
-                <div class="en-tete-section centre">
-                    <span class="label-section">Mes Réalisations</span>
-                    <h2 class="titre-section">Portfolio</h2>
-                    <p class="description-section">
-                        Une sélection de projets que j'ai développés, du design à la mise en production
-                    </p>
+        <!-- En-tête -->
+        <div class="en-tete-section centre">
+            <span class="label-section">Mes Réalisations</span>
+            <h2 class="titre-section">Portfolio</h2>
+            <p class="description-section">
+                Une sélection de projets que j'ai développés, du design à la mise en production
+            </p>
+        </div>
+
+        <!-- Filtres -->
+        <div class="filtres-portfolio">
+            <button class="bouton-filtre actif" data-filtre="tous">Tous</button>
+            <button class="bouton-filtre" data-filtre="frontend">Front-end</button>
+            <button class="bouton-filtre" data-filtre="backend">Back-end</button>
+            <button class="bouton-filtre" data-filtre="fullstack">Full Stack</button>
+        </div>
+
+        <!-- Grille des projets -->
+        <div class="grille-projets-visuels">
+
+            <!-- PROJET 01 : PORTFOLIO PERSONNEL -->
+            <article class="carte-projet-v" data-filtre="fullstack">
+                <span class="reperage-projet">01</span>
+                <img src="assets/img/projets/projet-01.png" alt="Portfolio personnel de Marino AIDOMOAN" loading="lazy">
+                <div class="voile-projet-v"></div>
+                <div class="base-projet-v">
+                    <h3>Portfolio Personnel</h3>
+                    <p>Mon portfolio personnel développé pour présenter mes compétences, mes projets et mon parcours.</p>
+                    <div class="stack-v">
+                        <span class="tech-tag"><i class="fa-brands fa-html5"></i> HTML5</span>
+                        <span class="tech-tag"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+                        <span class="tech-tag"><i class="fa-brands fa-js"></i> JavaScript</span>
+                    </div>
+                    <div class="liens-v">
+                        <a href="#" target="_blank" rel="noopener" aria-label="Voir le site"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        <a href="#" target="_blank" rel="noopener" aria-label="Voir le code"><i class="fa-brands fa-github"></i></a>
+                    </div>
                 </div>
+            </article>
 
-                <!-- Filtres -->
-                <div class="filtres-portfolio">
-                    <button class="bouton-filtre actif" data-filtre="tous">Tous</button>
-                    <button class="bouton-filtre" data-filtre="frontend">Front-end</button>
-                    <button class="bouton-filtre" data-filtre="backend">Back-end</button>
-                    <button class="bouton-filtre" data-filtre="fullstack">Full Stack</button>
+            <!-- PROJET 02 : E-COMMERCE -->
+            <article class="carte-projet-v" data-filtre="fullstack">
+                <span class="reperage-projet">02</span>
+                <img src="assets/img/projets/projet-02.png" alt="Application E-commerce Moderne" loading="lazy">
+                <div class="voile-projet-v"></div>
+                <div class="base-projet-v">
+                    <h3>Application E-commerce</h3>
+                    <p>Plateforme complète avec catalogue, panier, paiement sécurisé et espace client.</p>
+                    <div class="stack-v">
+                        <span class="tech-tag"><i class="fa-brands fa-react"></i> React</span>
+                        <span class="tech-tag"><i class="fa-brands fa-node-js"></i> Node.js</span>
+                        <span class="tech-tag"><i class="fa-solid fa-database"></i> MongoDB</span>
+                    </div>
+                    <div class="liens-v">
+                        <a href="#" target="_blank" rel="noopener" aria-label="Voir le site"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        <a href="#" target="_blank" rel="noopener" aria-label="Voir le code"><i class="fa-brands fa-github"></i></a>
+                    </div>
                 </div>
+            </article>
 
-                <!-- Grille des projets -->
-                <div class="grille-projets">
+            <!-- PROJET 03 : DASHBOARD ANALYTIQUE -->
+            <article class="carte-projet-v" data-filtre="frontend">
+                <span class="reperage-projet">03</span>
+                <img src="assets/img/projets/projet-02.png" alt="Dashboard Analytique" loading="lazy">
+                <div class="voile-projet-v"></div>
+                <div class="base-projet-v">
+                    <h3>Dashboard Analytique</h3>
+                    <p>Visualisation de données en temps réel avec graphiques interactifs et export de rapports.</p>
+                    <div class="stack-v">
+                        <span class="tech-tag"><i class="fa-brands fa-react"></i> React</span>
+                        <span class="tech-tag"><i class="fa-solid fa-chart-pie"></i> Chart.js</span>
+                        <span class="tech-tag"><img src="https://cdn.simpleicons.org/tailwindcss/38BDF8" class="icone-marque" alt=""> Tailwind</span>
+                    </div>
+                    <div class="liens-v">
+                        <a href="#" target="_blank" rel="noopener" aria-label="Voir le site"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        <a href="#" target="_blank" rel="noopener" aria-label="Voir le code"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+            </article>
 
-                    <!-- ======================================== -->
-                    <!-- PROJET 1 : PORTFOLIO PERSONNEL (Full Stack) -->
-                    <!-- ======================================== -->
-                    <article class="carte-projet" data-categorie="fullstack">
-                        <div class="image-projet">
-                            <img 
-                                src="assets/images/projets/portfolio.jpg" 
-                                alt="Portfolio personnel de Marino AIDOMOAN" 
-                                class="image-projet-visuel"
-                                loading="lazy"
-                            >
-                            <div class="survol-projet">
-                                <div class="liens-projet">
-                                    <a href="#" class="lien-projet" target="_blank" rel="noopener">
-                                        <i class="fas fa-external-link-alt" aria-hidden="true"></i>
-                                        <span>Voir le site</span>
-                                    </a>
-                                    <a href="#" class="lien-projet" target="_blank" rel="noopener">
-                                        <i class="fab fa-github" aria-hidden="true"></i>
-                                        <span>Code</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="infos-projet">
-                            <div class="tags-projet">
-                                <span class="tag-projet"><i class="fab fa-html5" aria-hidden="true"></i> HTML5</span>
-                                <span class="tag-projet"><i class="fab fa-css3-alt" aria-hidden="true"></i> CSS3</span>
-                                <span class="tag-projet"><i class="fab fa-js" aria-hidden="true"></i> JavaScript</span>
-                            </div>
-                            <h3 class="titre-projet">Portfolio Personnel</h3>
-                            <p class="description-projet">
-                                Mon portfolio personnel développé pour présenter mes compétences, mes projets et mon parcours.
-                                Interface responsive, mode clair/sombre, animations fluides et accessibilité.
-                            </p>
-                        </div>
-                    </article>
+            <!-- PROJET 04 : API TASK MANAGER -->
+            <article class="carte-projet-v" data-filtre="backend">
+                <span class="reperage-projet">04</span>
+                <img src="assets/img/projets/projet-01.png" alt="API Task Manager" loading="lazy">
+                <div class="voile-projet-v"></div>
+                <div class="base-projet-v">
+                    <h3>API Task Manager</h3>
+                    <p>API RESTful pour la gestion de tâches avec authentification JWT et documentation Swagger.</p>
+                    <div class="stack-v">
+                        <span class="tech-tag"><i class="fa-brands fa-node-js"></i> Node.js</span>
+                        <span class="tech-tag"><i class="fa-solid fa-bolt"></i> Express</span>
+                        <span class="tech-tag"><i class="fa-solid fa-database"></i> PostgreSQL</span>
+                    </div>
+                    <div class="liens-v">
+                        <a href="#" target="_blank" rel="noopener" aria-label="Voir la doc API"><i class="fa-solid fa-book"></i></a>
+                        <a href="#" target="_blank" rel="noopener" aria-label="Voir le code"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+            </article>
 
-                    <!-- ======================================== -->
-                    <!-- PROJET 2 : E-COMMERCE (Full Stack)        -->
-                    <!-- ======================================== -->
-                    <article class="carte-projet" data-categorie="fullstack">
-                        <div class="image-projet">
-                            <img 
-                                src="assets/images/projets/ecommerce.jpg" 
-                                alt="Application E-commerce Moderne" 
-                                class="image-projet-visuel"
-                                loading="lazy"
-                            >
-                            <div class="survol-projet">
-                                <div class="liens-projet">
-                                    <a href="#" class="lien-projet" target="_blank" rel="noopener">
-                                        <i class="fas fa-external-link-alt" aria-hidden="true"></i>
-                                        <span>Voir le site</span>
-                                    </a>
-                                    <a href="#" class="lien-projet" target="_blank" rel="noopener">
-                                        <i class="fab fa-github" aria-hidden="true"></i>
-                                        <span>Code</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="infos-projet">
-                            <div class="tags-projet">
-                                <span class="tag-projet"><i class="fab fa-react" aria-hidden="true"></i> React</span>
-                                <span class="tag-projet"><i class="fab fa-node-js" aria-hidden="true"></i> Node.js</span>
-                                <span class="tag-projet"><i class="fas fa-database" aria-hidden="true"></i> MongoDB</span>
-                            </div>
-                            <h3 class="titre-projet">Application E-commerce</h3>
-                            <p class="description-projet">
-                                Plateforme e-commerce complète avec catalogue de produits, panier, paiement sécurisé (Stripe),
-                                espace client et interface d'administration. Optimisée pour le référencement.
-                            </p>
-                        </div>
-                    </article>
+            <!-- PROJET 05 : PLATEFORME DE BLOG -->
+            <article class="carte-projet-v" data-filtre="fullstack">
+                <span class="reperage-projet">05</span>
+                <img src="assets/img/projets/projet-01.png" alt="Plateforme de Blog" loading="lazy">
+                <div class="voile-projet-v"></div>
+                <div class="base-projet-v">
+                    <h3>Plateforme de Blog</h3>
+                    <p>CMS personnalisé avec éditeur Markdown, commentaires et optimisation SEO.</p>
+                    <div class="stack-v">
+                        <span class="tech-tag">Next.js</span>
+                        <span class="tech-tag">Prisma</span>
+                        <span class="tech-tag"><i class="fa-solid fa-database"></i> PostgreSQL</span>
+                    </div>
+                    <div class="liens-v">
+                        <a href="#" target="_blank" rel="noopener" aria-label="Voir le site"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        <a href="#" target="_blank" rel="noopener" aria-label="Voir le code"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+            </article>
 
-                    <!-- ======================================== -->
-                    <!-- PROJET 3 : DASHBOARD ANALYTIQUE (Front-end) -->
-                    <!-- ======================================== -->
-                    <article class="carte-projet" data-categorie="frontend">
-                        <div class="image-projet">
-                            <img 
-                                src="assets/images/projets/dashboard.jpg" 
-                                alt="Dashboard Analytique" 
-                                class="image-projet-visuel"
-                                loading="lazy"
-                            >
-                            <div class="survol-projet">
-                                <div class="liens-projet">
-                                    <a href="#" class="lien-projet" target="_blank" rel="noopener">
-                                        <i class="fas fa-external-link-alt" aria-hidden="true"></i>
-                                        <span>Voir le site</span>
-                                    </a>
-                                    <a href="#" class="lien-projet" target="_blank" rel="noopener">
-                                        <i class="fab fa-github" aria-hidden="true"></i>
-                                        <span>Code</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="infos-projet">
-                            <div class="tags-projet">
-                                <span class="tag-projet"><i class="fab fa-react" aria-hidden="true"></i> React</span>
-                                <span class="tag-projet"><i class="fas fa-chart-pie" aria-hidden="true"></i> Chart.js</span>
-                                <span class="tag-projet"><i class="fab fa-tailwind" aria-hidden="true"></i> Tailwind</span>
-                            </div>
-                            <h3 class="titre-projet">Dashboard Analytique</h3>
-                            <p class="description-projet">
-                                Interface de visualisation de données en temps réel avec graphiques interactifs,
-                                filtres avancés et export de rapports. Intégration d'APIs externes pour les métriques.
-                            </p>
-                        </div>
-                    </article>
+            <!-- PROJET 06 : CHAT EN TEMPS RÉEL -->
+            <article class="carte-projet-v" data-filtre="backend">
+                <span class="reperage-projet">06</span>
+                <img src="assets/img/projets/projet-02.png" alt="Application Chat en Temps Réel" loading="lazy">
+                <div class="voile-projet-v"></div>
+                <div class="base-projet-v">
+                    <h3>Chat en Temps Réel</h3>
+                    <p>Messagerie instantanée avec salons publics/privés, notifications et partage de fichiers.</p>
+                    <div class="stack-v">
+                        <span class="tech-tag"><i class="fa-solid fa-bolt"></i> Socket.io</span>
+                        <span class="tech-tag"><i class="fa-brands fa-node-js"></i> Node.js</span>
+                        <span class="tech-tag"><i class="fa-solid fa-database"></i> Redis</span>
+                    </div>
+                    <div class="liens-v">
+                        <a href="#" target="_blank" rel="noopener" aria-label="Voir le site"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        <a href="#" target="_blank" rel="noopener" aria-label="Voir le code"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+            </article>
 
-                    <!-- ======================================== -->
-                    <!-- PROJET 4 : API TASK MANAGER (Back-end)    -->
-                    <!-- ======================================== -->
-                    <article class="carte-projet" data-categorie="backend">
-                        <div class="image-projet">
-                            <img 
-                                src="assets/images/projets/task-api.jpg" 
-                                alt="API Task Manager" 
-                                class="image-projet-visuel"
-                                loading="lazy"
-                            >
-                            <div class="survol-projet">
-                                <div class="liens-projet">
-                                    <a href="#" class="lien-projet" target="_blank" rel="noopener">
-                                        <i class="fas fa-book" aria-hidden="true"></i>
-                                        <span>API Docs</span>
-                                    </a>
-                                    <a href="#" class="lien-projet" target="_blank" rel="noopener">
-                                        <i class="fab fa-github" aria-hidden="true"></i>
-                                        <span>Code</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="infos-projet">
-                            <div class="tags-projet">
-                                <span class="tag-projet"><i class="fab fa-node-js" aria-hidden="true"></i> Node.js</span>
-                                <span class="tag-projet"><i class="fas fa-bolt" aria-hidden="true"></i> Express</span>
-                                <span class="tag-projet"><i class="fas fa-database" aria-hidden="true"></i> PostgreSQL</span>
-                            </div>
-                            <h3 class="titre-projet">API Task Manager</h3>
-                            <p class="description-projet">
-                                API RESTful complète pour la gestion de tâches avec authentification JWT,
-                                gestion d'équipes, autorisations fines et documentation Swagger.
-                            </p>
-                        </div>
-                    </article>
+        </div> <!-- fin grille-projets-visuels -->
 
-                    <!-- ======================================== -->
-                    <!-- PROJET 5 : PLATEFORME DE BLOG (Full Stack) -->
-                    <!-- ======================================== -->
-                    <article class="carte-projet" data-categorie="fullstack">
-                        <div class="image-projet">
-                            <img 
-                                src="assets/images/projets/blog.jpg" 
-                                alt="Plateforme de Blog" 
-                                class="image-projet-visuel"
-                                loading="lazy"
-                            >
-                            <div class="survol-projet">
-                                <div class="liens-projet">
-                                    <a href="#" class="lien-projet" target="_blank" rel="noopener">
-                                        <i class="fas fa-external-link-alt" aria-hidden="true"></i>
-                                        <span>Voir le site</span>
-                                    </a>
-                                    <a href="#" class="lien-projet" target="_blank" rel="noopener">
-                                        <i class="fab fa-github" aria-hidden="true"></i>
-                                        <span>Code</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="infos-projet">
-                            <div class="tags-projet">
-                                <span class="tag-projet"><i class="fas fa-next" aria-hidden="true"></i> Next.js</span>
-                                <span class="tag-projet"><i class="fas fa-database" aria-hidden="true"></i> Prisma</span>
-                                <span class="tag-projet"><i class="fas fa-database" aria-hidden="true"></i> PostgreSQL</span>
-                            </div>
-                            <h3 class="titre-projet">Plateforme de Blog</h3>
-                            <p class="description-projet">
-                                CMS personnalisé avec éditeur Markdown, système de commentaires, catégories et tags.
-                                Optimisé SEO avec métadonnées dynamiques et performance Lighthouse > 95.
-                            </p>
-                        </div>
-                    </article>
+        <div class="action-portfolio">
+            <a href="#" class="bouton bouton-secondaire">Voir tous les projets</a>
+        </div>
 
-                    <!-- ======================================== -->
-                    <!-- PROJET 6 : CHAT EN TEMPS RÉEL (Back-end)  -->
-                    <!-- ======================================== -->
-                    <article class="carte-projet" data-categorie="backend">
-                        <div class="image-projet">
-                            <img 
-                                src="assets/images/projets/chat.jpg" 
-                                alt="Application Chat en Temps Réel" 
-                                class="image-projet-visuel"
-                                loading="lazy"
-                            >
-                            <div class="survol-projet">
-                                <div class="liens-projet">
-                                    <a href="#" class="lien-projet" target="_blank" rel="noopener">
-                                        <i class="fas fa-external-link-alt" aria-hidden="true"></i>
-                                        <span>Voir le site</span>
-                                    </a>
-                                    <a href="#" class="lien-projet" target="_blank" rel="noopener">
-                                        <i class="fab fa-github" aria-hidden="true"></i>
-                                        <span>Code</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="infos-projet">
-                            <div class="tags-projet">
-                                <span class="tag-projet"><i class="fas fa-bolt" aria-hidden="true"></i> Socket.io</span>
-                                <span class="tag-projet"><i class="fab fa-node-js" aria-hidden="true"></i> Node.js</span>
-                                <span class="tag-projet"><i class="fas fa-database" aria-hidden="true"></i> Redis</span>
-                            </div>
-                            <h3 class="titre-projet">Chat en Temps Réel</h3>
-                            <p class="description-projet">
-                                Application de messagerie instantanée avec salons publics/privés, notifications,
-                                partage de fichiers et historique des messages. Scalable pour des milliers d'utilisateurs.
-                            </p>
-                        </div>
-                    </article>
+    </div> <!-- fin conteneur -->
 
-                </div> <!-- fin grille-projets -->
-            </div> <!-- fin conteneur -->
-
-        </section>
+</section>
 
         <section id="contact" class="contact">
 
