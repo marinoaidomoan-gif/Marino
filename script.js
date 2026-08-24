@@ -35,3 +35,63 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+/* ==========================================================================
+   SCRIPT PRINCIPAL 
+   ========================================================================== */
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    /* ----------------------------------------------------------------------
+       MENU MOBILE
+       ------------------------------------------------------------------ */
+    const boutonMenuMobile = document.getElementById('bouton-menu-mobile');
+    const menuListe = document.getElementById('menu-liste');
+    const iconeMenuMobile = boutonMenuMobile.querySelector('i');
+
+    function ouvrirMenuMobile() {
+        menuListe.classList.add('ouvert');
+        boutonMenuMobile.setAttribute('aria-expanded', 'true');
+        boutonMenuMobile.setAttribute('aria-label', 'Fermer le menu');
+        iconeMenuMobile.classList.remove('fa-bars');
+        iconeMenuMobile.classList.add('fa-xmark');
+        document.body.classList.add('menu-ouvert');
+    }
+
+    function fermerMenuMobile() {
+        menuListe.classList.remove('ouvert');
+        boutonMenuMobile.setAttribute('aria-expanded', 'false');
+        boutonMenuMobile.setAttribute('aria-label', 'Ouvrir le menu');
+        iconeMenuMobile.classList.remove('fa-xmark');
+        iconeMenuMobile.classList.add('fa-bars');
+        document.body.classList.remove('menu-ouvert');
+    }
+
+    boutonMenuMobile.addEventListener('click', () => {
+        const estOuvert = menuListe.classList.contains('ouvert');
+        estOuvert ? fermerMenuMobile() : ouvrirMenuMobile();
+    });
+
+    menuListe.querySelectorAll('.menu-lien').forEach(lien => {
+        lien.addEventListener('click', () => {
+            if (menuListe.classList.contains('ouvert')) {
+                fermerMenuMobile();
+            }
+        });
+    });
+
+    document.addEventListener('click', (evenement) => {
+        const clicDansMenu = menuListe.contains(evenement.target);
+        const clicSurBouton = boutonMenuMobile.contains(evenement.target);
+        if (!clicDansMenu && !clicSurBouton && menuListe.classList.contains('ouvert')) {
+            fermerMenuMobile();
+        }
+    });
+
+    document.addEventListener('keydown', (evenement) => {
+        if (evenement.key === 'Escape' && menuListe.classList.contains('ouvert')) {
+            fermerMenuMobile();
+        }
+    });
+
+});

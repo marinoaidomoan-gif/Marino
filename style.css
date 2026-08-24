@@ -32,7 +32,7 @@
     --taille-lg: 1.375rem;
     --taille-xl: 1.75rem;
     --taille-2xl: 2.5rem;
-    --taille-3xl: 3.5rem;
+    --taille-3xl: 5rem;
 
     /* Espacement */
     --espace-xs: 0.5rem;
@@ -119,6 +119,10 @@ body {
 body {
     background-image: none;
     position: relative;
+}
+
+body.menu-ouvert {
+    overflow: hidden;
 }
 
 body::before {
@@ -357,11 +361,52 @@ strong {
 
 .menu-lien-contact { color: var(--couleur-accent); }
 
-.bascule-theme, .bouton-menu-mobile { /* boutons icône ronds */  }
+.theme-toggle, .bouton-menu-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: var(--couleur-texte);
+    transition: background-color var(--transition), color var(--transition);
+}
+.theme-toggle:hover, .bouton-menu-mobile:hover {
+    background-color: var(--couleur-surface);
+    color: var(--couleur-accent);
+}
+
+.bouton-menu-mobile { display: none; border-radius: var(--rayon); }
 
 @media (max-width: 860px) {
+    .bouton-menu-mobile { display: flex; }
+
     /* menu qui se transforme en dropdown plein-largeur sous le header */
-    .menu-liste.ouvert { transform: translateY(0); opacity: 1; visibility: visible; }
+    .menu-liste {
+        position: fixed;
+        top: 76px; left: 0; right: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--espace-sm);
+        padding: var(--espace-md);
+        margin: 0;
+        background-color: var(--couleur-fond);
+        border-bottom: 1px solid var(--couleur-bordure);
+        transform: translateY(-8px);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: transform var(--transition), opacity var(--transition), visibility var(--transition);
+    }
+
+    .menu-liste.ouvert {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    .menu-lien { width: 100%; padding: 0.6rem 0; }
 }
 
 /* ==========================================================================
@@ -573,27 +618,27 @@ strong {
 }
 
 .blob-img.grand {
-    top: -40px;
-    right: -90px;
-    width: 560px;
+    top: 30px;
+    right: 50px;
+    width: 1000px;
     opacity: 0.95;
     animation-duration: 16s;
     animation-delay: -5s;
 }
 
 .blob-img.moyen {
-    bottom: -50px;
-    left: -70px;
-    width: 420px;
+    bottom: 10px;
+    left: -150px;
+    width: 520px;
     opacity: 0.85;
     animation-duration: 20s;
     animation-delay: -2s;
 }
 
 .blob-img.petit {
-    bottom: -70px;
-    right: -10px;
-    width: 280px;
+    bottom: 100px;
+    right: -70px;
+    width: 580px;
     opacity: 0.9;
     animation-duration: 13s;
     animation-delay: -8s;
