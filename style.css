@@ -1107,6 +1107,17 @@ body.dark-mode .theme-toggle {
 }
 .carte-projet-v:hover img { transform: scale(1.06); }
 
+.carte-projet-v {
+    opacity: 0;
+    transform: scale(0.96);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition-delay: var(--delai, 0s);
+}
+.carte-projet-v.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
 .reperage-projet {
     position: absolute;
     top: var(--espace-sm);
@@ -1596,6 +1607,18 @@ body.dark-mode .theme-toggle {
     padding-bottom: 0;
 }
 
+/* PARCOURS — cascade verticale */
+.etape-parcours {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition-delay: var(--delai, 0s);
+}
+.etape-parcours.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* le point sur la ligne */
 .etape-parcours::before {
     content: "";
@@ -1667,6 +1690,18 @@ body.dark-mode .theme-toggle {
 
 .ligne-service:hover::before {
     transform: scaleY(1);
+}
+
+/* SERVICES — glissement gauche → droite */
+.ligne-service {
+    opacity: 0;
+    transform: translateX(-32px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+    transition-delay: var(--delai, 0s);
+}
+.ligne-service.visible {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .numero-service {
@@ -1775,4 +1810,14 @@ body.dark-mode .theme-toggle {
 .fermer-modale:hover {
     border-color: var(--couleur-accent);
     color: var(--couleur-accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .etape-parcours,
+    .ligne-service,
+    .carte-projet-v {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
 }

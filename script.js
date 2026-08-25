@@ -379,3 +379,63 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 })();
+
+// ============================================================
+// BOUTON RETOUR EN HAUT
+// ============================================================
+
+(function() {
+    const boutonRemonter = document.getElementById('bouton-remonter');
+    if (!boutonRemonter) return;
+
+    // affiche le bouton après avoir scrollé plus d'une hauteur d'écran
+    function gererVisibilite() {
+        if (window.scrollY > window.innerHeight) {
+            boutonRemonter.classList.add('visible');
+        } else {
+            boutonRemonter.classList.remove('visible');
+        }
+    }
+
+    window.addEventListener('scroll', gererVisibilite, { passive: true });
+    gererVisibilite(); // état correct si la page est rechargée en cours de scroll
+
+    boutonRemonter.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+})();
+
+// ============================================================
+// ANIMATIONS AU SCROLL (Parcours, Services, Portfolio)
+// ============================================================
+
+(function() {
+    // pas d'animation du tout si l'utilisateur préfère un mouvement réduit
+    const reduitMouvement = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduitMouvement) return;
+
+    const groupesAnimes = [
+        { selecteur: '.etape-parcours', delaiEntre: 150 },
+        { selecteur: '.ligne-service', delaiEntre: 100 },
+        { selecteur: '.carte-projet-v', delaiEntre: 90 }
+    ];
+
+    const observateur = new IntersectionObserver((entrees, obs) => {
+        entrees.forEach(entree => {
+            if (entree.isIntersecting) {
+                entree.target.classList.add('visible');
+                obs.unobserve(entree.target); // ne se joue qu'une fois
+            }
+        });
+    }, {
+        threshold: 0.15
+    });
+
+    groupesAnimes.forEach(({ selecteur, delaiEntre }) => {
+        const elements = document.querySelectorAll(selecteur);
+        elements.forEach((element, index) => {
+            element.style.setProperty('--delai', `${(index % 6) * delaiEntre}ms`);
+            observateur.observe(element);
+        });
+    });
+})();
