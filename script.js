@@ -227,3 +227,30 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 })();
+
+// ============================================================
+// FILTRE PORTFOLIO
+// ============================================================
+
+(function() {
+    const boutonsFiltre = document.querySelectorAll('.bouton-filtre');
+    const cartesProjet = document.querySelectorAll('.carte-projet-v');
+
+    if (!boutonsFiltre.length || !cartesProjet.length) return;
+
+    boutonsFiltre.forEach(bouton => {
+        bouton.addEventListener('click', () => {
+            const filtreChoisi = bouton.getAttribute('data-filtre');
+
+            // état visuel du bouton actif
+            boutonsFiltre.forEach(b => b.classList.remove('actif'));
+            bouton.classList.add('actif');
+
+            // affichage/masquage des cartes
+            cartesProjet.forEach(carte => {
+                const correspond = filtreChoisi === 'tous' || carte.getAttribute('data-filtre') === filtreChoisi;
+                carte.classList.toggle('masque', !correspond);
+            });
+        });
+    });
+})();
