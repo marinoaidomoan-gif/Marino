@@ -138,3 +138,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 })();
+
+// ============================================================
+// SURBRILLANCE DE NAV AU SCROLL
+// ============================================================
+
+(function() {
+    const sections = document.querySelectorAll('section[id]');
+    const liensNav = document.querySelectorAll('.menu-lien');
+
+    if (!sections.length || !liensNav.length) return;
+
+    const observateur = new IntersectionObserver((entrees) => {
+        entrees.forEach((entree) => {
+            const lienCorrespondant = document.querySelector(`.menu-lien[href="#${entree.target.id}"]`);
+            if (!lienCorrespondant) return;
+
+            if (entree.isIntersecting) {
+                liensNav.forEach(lien => lien.classList.remove('actif'));
+                lienCorrespondant.classList.add('actif');
+            }
+        });
+    }, {
+        // la section est considérée "active" quand elle occupe la bande
+        // centrale de l'écran, entre 20% du haut et 55% du bas
+        rootMargin: '-20% 0px -55% 0px',
+        threshold: 0
+    });
+
+    sections.forEach(section => observateur.observe(section));
+})();
