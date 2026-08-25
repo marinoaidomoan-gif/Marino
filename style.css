@@ -54,7 +54,7 @@
 }
 
 /* Mode sombre (cyanotype) */
-[data-theme="sombre"] {
+body.dark-mode {
     --couleur-fond: #0F2A4D;
     --couleur-surface: #153761;
     --couleur-surface-2: #1B4171;
@@ -369,11 +369,17 @@ strong {
     height: 40px;
     border-radius: 50%;
     color: var(--couleur-texte);
-    transition: background-color var(--transition), color var(--transition);
+    background: transparent;
+    border: 1px solid var(--couleur-bordure);
+    transition: background-color var(--transition), color var(--transition), border-color var(--transition);
 }
 .theme-toggle:hover, .bouton-menu-mobile:hover {
     background-color: var(--couleur-surface);
     color: var(--couleur-accent);
+}
+
+body.dark-mode .theme-toggle {
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .bouton-menu-mobile { display: none; border-radius: var(--rayon); }
@@ -407,6 +413,15 @@ strong {
     }
 
     .menu-lien { width: 100%; padding: 0.6rem 0; }
+
+    .theme-toggle {
+        margin-left: auto;
+        order: 2;
+    }
+
+    .bouton-menu-mobile {
+        order: 3;
+    }
 }
 
 /* ==========================================================================
@@ -647,6 +662,37 @@ strong {
 @keyframes floatBlob {
     0%   { transform: translate(0, 0) rotate(-2deg) scale(1); }
     100% { transform: translate(22px, -22px) rotate(3deg) scale(1.06); }
+}
+
+@media (max-width: 860px) {
+    .visuel-hero {
+        min-height: 300px;
+    }
+
+    .blob-img.grand {
+        width: 100%;
+        max-width: 300px;
+        top: 5%;
+        right: -10%;
+    }
+
+    .blob-img.moyen {
+        width: 90%;
+        max-width: 250px;
+        left: -20px;
+        bottom: 0;
+    }
+
+    .blob-img.petit {
+        width: 90%;
+        max-width: 280px;
+        right: -20px;
+        bottom: 10%;
+    }
+
+    .blob-img {
+        opacity: 0.4;
+    }
 }
 
 /* ======================================
@@ -902,7 +948,8 @@ strong {
     }
 
     .colonne-image {
-        position: static;
+        position: relative;
+        top: auto;
         max-width: 360px;
         margin-inline: auto;
     }

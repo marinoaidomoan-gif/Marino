@@ -95,3 +95,46 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
+// ============================================================
+// THÈME CLAIR / SOMBRE
+// ============================================================
+
+(function() {
+    const toggleBtn = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const body = document.body;
+    const mediaSombre = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function appliquerTheme(estSombre) {
+        body.classList.toggle('dark-mode', estSombre);
+        themeIcon.className = estSombre ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+    }
+
+    // Préférence explicite déjà choisie par l'utilisateur ?
+    const themeSauvegarde = localStorage.getItem('theme');
+
+    if (themeSauvegarde === 'dark' || themeSauvegarde === 'light') {
+        // L'utilisateur a déjà fait un choix manuel → on le respecte, point final
+        appliquerTheme(themeSauvegarde === 'dark');
+    } else {
+        // Aucun choix explicite → on suit le système, SANS l'enregistrer
+        appliquerTheme(mediaSombre.matches);
+    }
+
+    // Clic manuel → devient la préférence explicite, prioritaire pour toujours
+    toggleBtn.addEventListener('click', function() {
+        const estSombre = body.classList.toggle('dark-mode');
+        themeIcon.className = estSombre ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+        localStorage.setItem('theme', estSombre ? 'dark' : 'light');
+    });
+
+    // Si l'utilisateur n'a JAMAIS choisi manuellement, on continue de suivre
+    // les changements de thème système en temps réel
+    mediaSombre.addEventListener('change', function(e) {
+        const choixExplicite = localStorage.getItem('theme');
+        if (!choixExplicite) {
+            appliquerTheme(e.matches);
+        }
+    });
+})();
