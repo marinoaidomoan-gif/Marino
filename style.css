@@ -1051,7 +1051,7 @@ body.dark-mode .theme-toggle {
 }
 
 /* ==========================================================================
-   10. PORTFOLIO
+    PORTFOLIO
    ========================================================================== */
 
 .portfolio { padding-block: var(--espace-2xl); }
@@ -1361,6 +1361,17 @@ body.dark-mode .theme-toggle {
     border-color: var(--couleur-accent);
 }
 
+.groupe-formulaire.erreur input,
+.groupe-formulaire.erreur textarea {
+    border-color: var(--couleur-erreur);
+}
+
+.texte-erreur {
+    font-size: var(--taille-xs);
+    color: var(--couleur-erreur);
+    margin-top: -0.2rem;
+}
+
 .bouton-envoi { justify-content: center; width: 100%; position: relative; }
 
 .message-succes {
@@ -1371,22 +1382,53 @@ body.dark-mode .theme-toggle {
     align-items: center;
     justify-content: center;
     text-align: center;
-    gap: 0.75rem;
+    gap: 0.85rem;
     padding: var(--espace-lg);
     background-color: var(--couleur-surface);
+    border: 1px solid var(--couleur-bordure);
     border-radius: var(--rayon-lg);
+    overflow: hidden;
 }
-.message-succes.actif { display: flex; }
+.message-succes.actif {
+    display: flex;
+    animation: apparitionSucces 0.35s ease;
+}
+
+/* ligne d'accent en haut, comme sur la carte-hero */
+.message-succes::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--couleur-accent), var(--couleur-accent-2));
+}
+
+@keyframes apparitionSucces {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
 .icone-succes {
-    width: 56px; height: 56px;
-    display: flex; align-items: center; justify-content: center;
-    background-color: var(--couleur-accent-2);
-    color: #FFF8EF;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: color-mix(in srgb, var(--couleur-accent-2) 15%, transparent);
+    color: var(--couleur-accent-2);
+    border: 2px solid var(--couleur-accent-2);
     border-radius: 50%;
+    font-size: var(--taille-xl);
+}
+
+.message-succes h3 {
     font-size: var(--taille-lg);
 }
-.message-succes p { max-width: 32ch; }
+
+.message-succes p {
+    max-width: 32ch;
+    font-size: var(--taille-sm);
+}
 
 @media (max-width: 860px) {
     .grille-contact { grid-template-columns: 1fr; }

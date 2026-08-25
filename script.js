@@ -254,3 +254,128 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 })();
+
+// ============================================================
+// FORMULAIRE DE CONTACT
+// ============================================================
+
+(function() {
+    const formulaire = document.getElementById('formulaire-contact');
+    if (!formulaire) return;
+
+    const boutonEnvoi = document.getElementById('bouton-envoi');
+    const texteBouton = boutonEnvoi.querySelector('.texte-bouton');
+    const iconeEnvoi = boutonEnvoi.querySelector('.fa-paper-plane');
+    const spinner = boutonEnvoi.querySelector('.spinner');
+    const messageSucces = document.getElementById('message-succes');
+
+    const regles = {
+        nom: (valeur) => valeur.trim().length >= 2 ? '' : 'Merci d\'indiquer votre nom (2 caractères minimum).',
+        email: (valeur) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(valeur.trim()) ? '' : 'Adresse email invalide.',
+        sujet: (valeur) => valeur.trim().length >= 3 ? '' : 'Merci de préciser un sujet.',
+        message: (valeur) => valeur.trim().length >= 10 ? '' : 'Votre message doit contenir au moins 10 caractères.'
+    };
+
+    function afficherErreur(champ, texteMessage) {
+        const groupe = champ.closest('.groupe-formulaire');
+        groupe.classList.add('erreur');
+
+        let elementErreur = groupe.querySelector('.texte-erreur');
+        if (!elementErreur) {
+            elementErreur = document.createElement('span');
+            elementErreur.className = 'texte-erreur';
+            groupe.appendChild(elementErreur);
+        }
+        elementErreur.textContent = texteMessage;
+        champ.setAttribute('aria-invalid', 'true');
+    }
+
+    function retirerErreur(champ) {
+        const groupe = champ.closest('.groupe-formulaire');
+        groupe.classList.remove('erreur');
+        const elementErreur = groupe.querySelector('.texte-erreur');
+        if (elementErreur) elementErreur.remove();
+        champ.removeAttribute('aria-invalid');
+    }
+
+    function validerChamp(champ) {
+        const regle = regles[champ.name];
+        if (!regle) return true;
+
+        const messageErreur = regle(champ.value);
+        if (messageErreur) {
+            afficherErreur(champ, messageErreur);
+            return false;
+        }
+        retirerErreur(champ);
+        return true;
+    }
+
+    // validation en direct à la sortie du champ
+    Object.keys(regles).forEach(nomChamp => {
+        const champ = formulaire.elements[nomChamp];
+        if (champ) {
+            champ.addEventListener('blur', () => validerChamp(champ));
+        }
+    });
+
+    formulaire.addEventListener('submit', async (evenement) => {
+        evenement.preventDefault();
+
+        // honeypot : si rempli, c'est un bot → on ignore silencieusement
+        const honeypot = formulaire.elements['honeypot'];
+        if (honeypot && honeypot.value.trim() !== '') {
+            return;
+        }
+
+        // validation de tous les champs
+        let formulaireValide = true;
+        Object.keys(regles).forEach(nomChamp => {
+            const champ = formulaire.elements[nomChamp];
+            if (champ && !validerChamp(champ)) {
+                formulaireValide = false;
+            }
+        });
+
+        if (!formulaireValide) return;
+
+        // état "envoi en cours"
+        boutonEnvoi.disabled = true;
+        texteBouton.textContent = 'Envoi en cours...';
+        iconeEnvoi.style.display = 'none';
+        spinner.style.display = 'inline-flex';
+
+        try {
+            const donnees = new FormData(formulaire);
+            const reponse = await fetch(formulaire.action, {
+                method: 'POST',
+                body: donnees,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (reponse.ok) {
+                formulaire.reset();
+                messageSucces.classList.add('actif');
+
+                // referme automatiquement après 8 secondes et réaffiche le formulaire
+                setTimeout(() => {
+                    messageSucces.classList.remove('actif');
+                }, 8000);
+            } else {
+                throw new Error('Réponse non valide du serveur');
+            }
+        } catch (erreur) {
+            texteBouton.textContent = 'Erreur, réessayer';
+            setTimeout(() => {
+                texteBouton.textContent = 'Envoyer le message';
+            }, 3000);
+        } finally {
+            boutonEnvoi.disabled = false;
+            iconeEnvoi.style.display = 'inline-flex';
+            spinner.style.display = 'none';
+            if (messageSucces.classList.contains('actif')) {
+                texteBouton.textContent = 'Envoyer le message';
+            }
+        }
+    });
+})();
