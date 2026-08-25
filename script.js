@@ -168,3 +168,62 @@ document.addEventListener('DOMContentLoaded', () => {
 
     sections.forEach(section => observateur.observe(section));
 })();
+
+// ============================================================
+// MODALES LÉGALES (Mentions légales / Politique de confidentialité)
+// ============================================================
+
+(function() {
+    const fondModale = document.getElementById('fond-modale');
+    const liensOuverture = document.querySelectorAll('[data-ouvrir-modale]');
+    const boutonsFermeture = document.querySelectorAll('[data-fermer-modale]');
+
+    if (!fondModale) return;
+
+    function ouvrirModale(nomModale) {
+        // on désactive d'abord toutes les modales, puis on active la bonne
+        document.querySelectorAll('.modale').forEach(m => m.classList.remove('actif'));
+
+        const modaleCible = document.getElementById(`modale-${nomModale}`);
+        if (!modaleCible) return;
+
+        modaleCible.classList.add('actif');
+        fondModale.classList.add('actif');
+        document.body.classList.add('menu-ouvert'); // réutilise le blocage de scroll déjà en place
+    }
+
+    function fermerModale() {
+        fondModale.classList.remove('actif');
+        document.body.classList.remove('menu-ouvert');
+        // on attend la fin de la transition avant de vraiment masquer le contenu
+        setTimeout(() => {
+            document.querySelectorAll('.modale').forEach(m => m.classList.remove('actif'));
+        }, 250);
+    }
+
+    liensOuverture.forEach(lien => {
+        lien.addEventListener('click', (evenement) => {
+            evenement.preventDefault();
+            const nomModale = lien.getAttribute('data-ouvrir-modale');
+            ouvrirModale(nomModale);
+        });
+    });
+
+    boutonsFermeture.forEach(bouton => {
+        bouton.addEventListener('click', fermerModale);
+    });
+
+    // clic sur le fond sombre (en dehors de la boîte blanche) → ferme aussi
+    fondModale.addEventListener('click', (evenement) => {
+        if (evenement.target === fondModale) {
+            fermerModale();
+        }
+    });
+
+    // touche Échap → ferme
+    document.addEventListener('keydown', (evenement) => {
+        if (evenement.key === 'Escape' && fondModale.classList.contains('actif')) {
+            fermerModale();
+        }
+    });
+})();
