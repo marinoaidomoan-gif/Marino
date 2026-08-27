@@ -1056,6 +1056,11 @@ body.dark-mode .theme-toggle {
 
 .portfolio { padding-block: var(--espace-2xl); }
 
+.page-projets {
+    padding-top: calc(76px + var(--espace-2xl));
+    padding-bottom: var(--espace-2xl);
+}
+
 .filtres-portfolio {
     display: flex;
     flex-wrap: wrap;
